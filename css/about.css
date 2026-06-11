@@ -1,0 +1,366 @@
+/* ==========================================================================
+   1. RESET, VARIABLES Y ESTILOS GENERALES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGACIÓN
+   ========================================================================== */
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-top {
+    background-color: #EDCC0E; 
+    text-align: center;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #444;
+}
+
+.header-top a {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-container img {
+    max-height: 55px;
+    width: auto;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-menu a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #043927; 
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #043927; 
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   5. SECCIÓN SERVICIOS (Layout Espejo / Dos Columnas)
+   ========================================================================== */
+.services {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    min-height: 480px;
+    background-color: #ffffff;
+}
+
+.service-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 5% 60px 12%; /* Cambiado padding fijo por porcentajes para evitar colapsos */
+}
+
+.service-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.service-content h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.service-content p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 35px;
+    max-width: 550px;
+    line-height: 1.7;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Evita que los botones se desborden si el texto es largo */
+}
+
+/* Clases temporales para tus botones (añadidas para que no queden sin formato) */
+.btn-main{
+    padding: 12px 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    border: 1px solid #333;
+}
+.btn-main { background: #043927; color: #fff; }
+
+.service-banner {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100%;
+}
+
+.banner-facial {
+    background-image: url('../assets/consultorio.jpg'); 
+    background-color: #f5ece6;
+}
+
+/* ==========================================================================
+   SECCIÓN DÓNDE ENCONTRARNOS
+   ========================================================================== */
+.find-us-section {
+    background-color: #ffffff;
+    padding: 80px 5%;
+    border-bottom: 1px solid #f0f0f0;
+    width: 100%;
+}
+
+.find-us-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.find-us-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.find-us-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 35px;
+    line-height: 1.7;
+}
+
+.find-us-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.find-us-details li {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.find-us-details i {
+    font-size: 1.3rem;
+    color: #1AD9AA; 
+    background-color: #f0faf7;
+    padding: 12px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Evita que el círculo del icono se deforme */
+}
+
+.find-us-details h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.find-us-details p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.find-us-map {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef2f5;
+}
+
+/* ==========================================================================
+   7. FOOTER & BOTÓN WHATSAPP
+   ========================================================================== */
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 5%;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+footer p { margin-bottom: 8px; }
+
+/* Botón flotante optimizado mediante clase semántica */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 3000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.08);
+}
+
+.whatsapp-btn::before {
+    content: "\f232";
+    font-family: "Font Awesome 6 Brands"; /* Actualizado a FA6 */
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+
+
+/* ==========================================================================
+   8. MEDIA QUERIES (Responsive Seguro)
+   ========================================================================== */
+@media (max-width: 991px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none; 
+    }
+
+    /* Servicios Mobile */
+    .service-card {
+        grid-template-columns: 1fr;
+    }
+
+    .service-content {
+        padding: 50px 25px;
+    }
+
+    .service-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-group a {
+        width: 100%;
+    }
+
+    .service-banner {
+        height: 350px;
+    }
+
+    /* Encontrarnos Mobile: Evita que colapsen el mapa y la información */
+    .find-us-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .find-us-title {
+        font-size: 2.2rem;
+    }
+
+    .find-us-map {
+        height: 350px; /* Reducción de altura adaptada a pantallas más chicas */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-content h1, .find-us-title {
+        font-size: 1.8rem;
+    }
+    
+    .find-us-section {
+        padding: 50px 5%;
+    }
+}
