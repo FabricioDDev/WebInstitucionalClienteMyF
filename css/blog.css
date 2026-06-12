@@ -1,0 +1,314 @@
+/* ==========================================================================
+   1. RESET, VARIABLES Y ESTILOS GENERALES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGACIÓN (Estilo Calia)
+   ========================================================================== */
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    background-color: #ffffff;
+}
+
+.header-top {
+    background-color: #EDCC0E; /* Rosa pastel muy suave */
+    text-align: center;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #444;
+}
+
+.header-top a {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-container img {
+    max-height: 55px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-menu a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color:  #043927; /* Azul institucional */
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #043927; 
+    cursor: pointer;
+}
+ /* ==========================================================================
+   SECCIÓN BLOG / TARJETAS DE ARTÍCULOS
+   ========================================================================== */
+.blog-section {
+    background-color: #ffffff;
+    padding: 60px 5%;
+    width: 100%;
+}
+
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* Crea dos columnas iguales por defecto, pero si hay más tarjetas se acomodarán solas */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 40px;
+}
+
+.blog-card {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Si quieres un sutil efecto de elevación al pasar el mouse, puedes descomentar la línea de abajo */
+    /* transition: transform 0.3s ease; */
+}
+
+/* Contenedor de la imagen para asegurar proporciones perfectas */
+.blog-card-image {
+    width: 100%;
+    height: 280px; /* Altura fija ideal para las fotos horizontales de estética */
+    overflow: hidden;
+}
+
+.blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen llene el espacio sin deformarse */
+    transition: transform 0.5s ease;
+}
+
+/* Efecto visual elegante para la imagen al pasar el cursor */
+.blog-card:hover .blog-card-image img {
+    transform: scale(1.03);
+}
+
+/* Contenido de la tarjeta (Textos) */
+.blog-card-content {
+    padding: 20px 0 10px 0; /* Sin padding lateral para mantener la línea limpia con la imagen */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.blog-card-title {
+    font-family: 'Montserrat', sans-serif; /* Cambia a 'Playfair Display' si prefieres estilo serif */
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.blog-card-title:hover {
+    color: #043927; /* Tu color institucional */
+}
+
+.blog-card-excerpt {
+    font-size: 0.9rem;
+    color: #777777;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    /* Limita el texto a 4 líneas en caso de que un párrafo sea más largo que otro */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Meta información (Fecha, iconos) */
+.blog-card-meta {
+    margin-top: auto; /* Empuja la fecha siempre al fondo de la tarjeta */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #999999;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.blog-card-meta i {
+    font-size: 0.85rem;
+}
+
+
+
+/* ==========================================================================
+   7. FOOTER & BOTÓN WHATSAPP
+   ========================================================================== */
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 5%;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+footer p { margin-bottom: 8px; }
+
+/* Botón flotante idéntico al de tu captura */
+main > a:last-of-type {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0px; /* Esconde el texto "Boton whatsapp" */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 3000;
+}
+
+/* El icono dentro de WhatsApp (usando pseudoelemento para no forzar cambio de HTML) */
+main > a:last-of-type::before {
+    content: "\f232";
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+/* ==========================================================================
+   7. FOOTER & BOTÓN WHATSAPP
+   ========================================================================== */
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 5%;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+footer p { margin-bottom: 8px; }
+
+/* Botón flotante optimizado mediante clase semántica */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 3000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.08);
+}
+
+.whatsapp-btn::before {
+    content: "\f232";
+    font-family: "Font Awesome 6 Brands"; /* Actualizado a FA6 */
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+
+
+
+/* ==========================================================================
+   8. MEDIA QUERIES (Responsive para Mobile)
+   ========================================================================== */
+@media (max-width: 991px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none; /* Idealmente controlado con una clase JS (.active) */
+    }
+
+  
+/* ==========================================================================
+   RESPONSIVE PARA BLOG
+   ========================================================================== */
+@media (max-width: 768px) {
+    .blog-section {
+        padding: 40px 25px;
+    }
+    
+    .blog-container {
+        gap: 35px;
+    }
+
+    .blog-card-image {
+        height: 220px; /* Reducimos un poco la altura de la imagen en móviles */
+    }
+
+    .blog-card-title {
+        font-size: 1.2rem;
+    }
+}
