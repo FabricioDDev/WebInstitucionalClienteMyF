@@ -1,0 +1,447 @@
+/* ==========================================================================
+   1. RESET, VARIABLES Y ESTILOS GENERALES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGACIÓN (Estilo Calia)
+   ========================================================================== */
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    background-color: #ffffff;
+}
+
+.header-top {
+    background-color: #EDCC0E; /* Rosa pastel muy suave */
+    text-align: center;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #444;
+}
+
+.header-top a {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-container img {
+    max-height: 55px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-menu a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color:  #043927; /* Azul institucional */
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #043927; 
+    cursor: pointer;
+}
+/* ==========================================================================
+   SECCIÓN SERVICIOS CON TARJETAS DE REFERENCIA (ESTILO CALIA / MYF)
+   ========================================================================== */
+.services-section {
+    background-color:  #ffffff; /* Color crema suave del fondo de tu imagen */
+    padding: 80px 5%;
+    width: 100%;
+}
+
+/* Encabezado */
+.services-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.services-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #000000; /* Tono marrón cálido de tu título */
+    font-weight: 400;
+}
+
+.services-title-divider {
+    width: 60px;
+    height: 1px;
+    background-color: #000000;
+    margin: 15px auto;
+}
+
+.services-subtitle {
+    font-size: 0.95rem;
+    color: #000000;
+    line-height: 1.7;
+}
+
+/* Sistema de Filtros */
+.filter-wrapper {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.filter-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.filter-btn {
+    background-color: #ffffff;
+    color:  #043927;
+    border: 1px solid #e3d5cd;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+/* El círculo decorativo del botón */
+.filter-btn .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color:  #043927;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+/* Estado activo del filtro */
+.filter-btn.active {
+    background-color:  #043927; /* Color café/marrón del botón activo */
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.filter-btn.active .dot {
+    background-color: #ffffff;
+}
+
+.filter-instruction {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: #000000;
+}
+
+/* Grid de Tarjetas */
+.services-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Estilo Base de las Tarjetas */
+.service-overlay-card {
+    position: relative;
+    height: 440px;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    background-color:  #043927;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-overlay-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagen de fondo */
+.card-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+    z-index: 1;
+}
+
+/* Gradiente que oscurece el fondo para leer bien el texto (Exacto a la imagen) */
+.service-overlay-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.75) 100%);
+    z-index: 2;
+}
+
+.service-overlay-card:hover .card-bg-image {
+    transform: scale(1.04);
+}
+
+/* Contenido interno sobre la imagen */
+.card-overlay-content {
+    position: relative;
+    z-index: 3; /* Por encima de la capa negra */
+    padding: 35px;
+    width: 100%;
+    color: #ffffff;
+}
+
+.card-top-line {
+    width: 40px;
+    height: 2px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.card-service-title {
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+}
+
+.card-service-description {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+    /* Evita desbordes limitando a un máximo de 3 líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Botón Ovalado "Quiero Información" */
+.card-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px); /* Suave desenfoque moderno */
+    -webkit-backdrop-filter: blur(5px);
+    color: #333333;
+    padding: 8px 8px 8px 20px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.card-action-btn .arrow-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #e3c4b5; /* Tono pastel del círculo de la flecha */
+    color: #5c4d46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.card-action-btn:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.card-action-btn:hover .arrow-circle {
+    transform: translateX(3px);
+}
+
+/* Clase útil para ocultar mediante JS */
+.service-overlay-card.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .services-main-title {
+        font-size: 2.2rem;
+    }
+    .service-overlay-card {
+        height: 400px;
+    }
+    .card-overlay-content {
+        padding: 25px;
+    }
+}
+
+
+/* ==========================================================================
+   7. FOOTER & BOTÓN WHATSAPP
+   ========================================================================== */
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 5%;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+footer p { margin-bottom: 8px; }
+
+/* Botón flotante idéntico al de tu captura */
+main > a:last-of-type {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0px; /* Esconde el texto "Boton whatsapp" */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 3000;
+}
+
+/* El icono dentro de WhatsApp (usando pseudoelemento para no forzar cambio de HTML) */
+main > a:last-of-type::before {
+    content: "\f232";
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+/* ==========================================================================
+   7. FOOTER & BOTÓN WHATSAPP
+   ========================================================================== */
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 5%;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+footer p { margin-bottom: 8px; }
+
+/* Botón flotante optimizado mediante clase semántica */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 3000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.08);
+}
+
+.whatsapp-btn::before {
+    content: "\f232";
+    font-family: "Font Awesome 6 Brands"; /* Actualizado a FA6 */
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+
+
+
+/* ==========================================================================
+   8. MEDIA QUERIES (Responsive para Mobile)
+   ========================================================================== */
+@media (max-width: 991px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none; /* Idealmente controlado con una clase JS (.active) */
+    }
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyF Estetica</title>
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <p>Encontra descuentos y promociones en <a href="#">Ver mas!</a></p>
+        </div>
+        <nav class="nav-container">
+            <a href="index.html"><img src="assets/Logo.JPG"></a>
+             <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about.html">Nosotros</a></li>
+                 <li><a href="#">Servicios</a></li>
+                  <li><a href="#">Tratamientos</a></li>
+                  <li><a href="blog.html">Blog</a></li>
+                   <li><a href="contact.html">Contacto</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="services-section">
+    <div class="services-header">
+        <h2 class="services-main-title">Servicios de Excelencia</h2>
+        <div class="services-title-divider"></div>
+        <p class="services-subtitle">
+            Ofrecemos una gama completa de procedimientos diseñados para realzar tu aspecto con seguridad y profesionalismo. 
+            Te acompañamos en todo el proceso, desde la consulta, hasta la recuperación.
+        </p>
+    </div>
+
+    <div class="filter-wrapper">
+        <span class="filter-label">FILTRAR POR CATEGORÍA</span>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="peluqueria">
+                <span class="dot"></span> Peluquería y Estilo Capilar
+            </button>
+            <button class="filter-btn" data-category="alisados">
+                <span class="dot"></span> Alisados y Estructura
+            </button>
+        </div>
+        <p class="filter-instruction">Hacé clic en una categoría para ver sus tratamientos</p>
+    </div>
+
+    <div class="services-grid">
+        
+        <article class="service-overlay-card" data-cat="peluqueria">
+            <div class="card-bg-image" style="background-image: url('assets/peluqueria.jpg');"></div>
+            <div class="card-overlay-content">
+                <div class="card-top-line"></div>
+                <h3 class="card-service-title">Corte de Pelo</h3>
+                <p class="card-service-description">
+                    El servicio esencial para renovar el look, dar forma, movimiento y volumen al cabello. Se adapta a las facciones y estilo de cada clienta.
+                </p>
+                <a href="#" class="card-action-btn">
+                    <span>Quiero información</span>
+                    <div class="arrow-circle"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </article>
+
+        <article class="service-overlay-card" data-cat="peluqueria">
+            <div class="card-bg-image" style="background-image: url('assets/TratamientoCorporal.JPG');"></div>
+            <div class="card-overlay-content">
+                <div class="card-top-line"></div>
+                <h3 class="card-service-title">Color / Tinte</h3>
+                <p class="card-service-description">
+                    Aplicación de coloración (global o de raíces) para cubrir canas, cambiar de tono o unificar el color del cabello, aportando brillo e intensidad.
+                </p>
+                <a href="#" class="card-action-btn">
+                    <span>Quiero información</span>
+                    <div class="arrow-circle"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </article>
+
+        <article class="service-overlay-card" data-cat="peluqueria">
+            <div class="card-bg-image" style="background-image: url('assets/TratamientoFacial.JPG');"></div>
+            <div class="card-overlay-content">
+                <div class="card-top-line"></div>
+                <h3 class="card-service-title">Mechas e Iluminación</h3>
+                <p class="card-service-description">
+                    Técnicas de aclaración localizada (como balayage o babylights) que buscan dar luz, dimensión y contraste al cabello, logrando un efecto sutil.
+                </p>
+                <a href="#" class="card-action-btn">
+                    <span>Quiero información</span>
+                    <div class="arrow-circle"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </article>
+
+        <article class="service-overlay-card hidden" data-cat="alisados">
+            <div class="card-bg-image" style="background-image: url('assets/alisados.jpg');"></div>
+            <div class="card-overlay-content">
+                <div class="card-top-line"></div>
+                <h3 class="card-service-title">Alisados</h3>
+                <p class="card-service-description">
+                    Tratamientos térmicos diseñados para modificar la estructura del cabello, eliminando el frizz y el volumen de forma duradera. Melena lacia y sedosa.
+                </p>
+                <a href="#" class="card-action-btn">
+                    <span>Quiero información</span>
+                    <div class="arrow-circle"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </article>
+
+        <article class="service-overlay-card hidden" data-cat="alisados">
+            <div class="card-bg-image" style="background-image: url('assets/nutriciones.jpg');"></div>
+            <div class="card-overlay-content">
+                <div class="card-top-line"></div>
+                <h3 class="card-service-title">Tratamientos y Nutriciones</h3>
+                <p class="card-service-description">
+                    Baños de crema, ampollas y mascarillas concentradas que devuelven los nutrientes, el agua y los aceites naturales perdidos por procesos químicos.
+                </p>
+                <a href="#" class="card-action-btn">
+                    <span>Quiero información</span>
+                    <div class="arrow-circle"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+       <a href="#" class="whatsapp-btn">Boton whatsapp</a>
+    </main>
+    <footer>
+        <p>Av.Constitucion 111, Del Viso|myfestetica@gmail.com</p>
+        <p>MyF Estetica</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
