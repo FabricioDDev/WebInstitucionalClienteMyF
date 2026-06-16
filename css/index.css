@@ -109,6 +109,7 @@ img {
 .carousel-slide {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
+    height: 550px;
     min-height: 520px;
     align-items: center;
 }
@@ -155,16 +156,17 @@ img {
 
 .carousel-image-container {
     width: 100%;
-    height: 100%;
+    height: 100%; /* Ocupa el 100% de los 550px del padre */
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    overflow: hidden;
 }
 
 .carousel-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 100%; /* 💡 Obliga a la imagen a rellenar la altura fija */
+    object-fit: cover; /* 💡 Clave: Corta y acomoda la foto para que no se estire ni se deforme */
 }
 
 /* Flechas del Carousel */
@@ -205,7 +207,34 @@ img {
 .dot.active {
     background-color: #043927; 
 }
+/* Lógica de transición y visibilidad para el Carrusel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+}
 
+.carousel-slide {
+    display: none;
+    grid-template-columns: 1.1fr 0.9fr;
+    min-height: 520px;
+    align-items: center;
+}
+
+.carousel-slide.active {
+    display: grid;
+    animation: slideFromRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 /* ==========================================================================
    4. SECCIÓN OPINIONES (Google Reviews)
    ========================================================================== */
@@ -529,17 +558,28 @@ main > a:last-of-type::before {
         display: none; /* Idealmente controlado con una clase JS (.active) */
     }
 
-   /* Carousel Mobile */
-    .carousel-slide {
+  /* ==========================================================================
+      CORRECCIÓN: Carousel Mobile
+      ========================================================================== */
+ .carousel-slide {
+        display: none;             
         grid-template-columns: 1fr;
         min-height: auto;
-        display: flex;             /* Cambiamos a flex para controlar el orden */
-        flex-direction: column;    /* Coloca el texto arriba y la imagen abajo */
+        height: auto; /* Permite que el contenedor crezca según el texto en mobile */
+    }
+
+    .carousel-slide.active {
+        display: flex;             
+        flex-direction: column;    
+    }
+    /* Mantenemos el efecto de zoom progresivo activo también en dispositivos móviles */
+    .carousel-slide.active .carousel-img {
+        animation: imageZoom 5s ease-out forwards;
     }
 
     .carousel-content {
-        padding: 40px 20px 30px 20px; /* Reducimos el padding para que no ocupe tanta pantalla */
-        text-align: center;           /* Centramos el texto para mejorar el diseño mobile */
+        padding: 40px 20px 30px 20px; 
+        text-align: center;           
     }
 
     .carousel-title {
@@ -551,20 +591,19 @@ main > a:last-of-type::before {
         margin-bottom: 20px;
     }
 
-    /* Corrección del contenedor de la imagen */
-    .carousel-image-container {
+.carousel-image-container {
         width: 100%;
-        height: auto;              /* Permitimos que la altura se adapte a la imagen */
-        max-height: 350px;         /* Evitamos que crezca infinitamente */
+        height: 300px;     /* 💡 Forzamos que el espacio de la foto mida SIEMPRE lo mismo */
+        max-height: 300px; 
         display: block;
-        overflow: hidden;
+        overflow: hidden; 
     }
 
-    /* Aseguramos el comportamiento responsivo de la imagen */
+    /* Aseguramos que la imagen llene esos 300px perfectos */
     .carousel-img {
         width: 100%;
-        height: auto;              /* Mantiene la proporción original de la foto */
-        object-fit: contain;       /* Cambiamos a 'contain' para que la silueta se vea completa sin cortes bruscos */
+        height: 100%;      /* 💡 Se adapta estrictamente a los 300px del contenedor */
+        object-fit: cover; /* 💡 Mantiene la proporción de la silueta sin deformarla */
         display: block;
     }
 
