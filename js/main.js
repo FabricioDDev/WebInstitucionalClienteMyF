@@ -1,79 +1,226 @@
-// Esperamos a que todo el DOM esté cargado
+// 1. Array de objetos con la información de los servicios (Declarado arriba)
+const services = [
+    // --- CATEGORÍA: ESTÉTICA DE UÑAS ---
+    {
+        title: "Esmaltado semipermanente",
+        description: " Es un sistema de pintado que se cura en lámpara UV/LED. Ofrece un brillo impecable y una duración de 15 a 21 días sin saltarse ni perder el color. Ideal para quienes buscan practicidad.",
+        image: "assets/manicuria.jpg", 
+        category: "Manicuría: Cuidado de Uñas",
+        hidden: true
+    },
+    {
+        title: "Capping(Gel o Acrilico)",
+        description: "Consiste en aplicar una fina capa de gel o acrílico sobre la uña natural (sin alargarla). Funciona como un escudo protector para evitar que las uñas finas o quebradizas se descamen o se rompan, permitiéndoles crecer sanas.",
+        image: "assets/manicuria.jpg", 
+        category: "Manicuría: Cuidado de Uñas",
+        hidden: true
+    },
+    {
+        title: "Soft Gel",
+        description: "Es un método innovador y rápido para extensiones de uñas. Se utilizan tips hechos de gel flexible que se adhieren a la uña con una base especial y se curan en lámpara. El resultado es súper natural, ligero y mucho más rápido de aplicar que las estructuras tradicionales.",
+        image: "assets/manicuria.jpg", 
+        category: "Manicuría: Cuidado de Uñas",
+        hidden: true
+    },
+
+    // --- CATEGORÍA: PESTAÑAS Y MIRADA ---
+    {
+        title: "Extensiones de pestaña",
+        description: "Es una técnica que consiste en colocar pelitos individuales (de fibra sintética muy liviana) sobre cada una de las pestañas naturales mediante un adhesivo hipoalergénico. Sirve para dar volumen, longitud y curvatura, logrando una mirada impactante y efecto rímel continuo sin necesidad de maquillarse. Dependiendo de la cantidad de pelitos por pestaña natural, pueden ser Pelo a Pelo (más natural) o Volumen (más tupido).",
+        image: "assets/mirada.jpg", 
+        category: "Mirada: Pestañas y Cejas",
+        hidden: true
+    },
+        {
+        title: "Lifting de pestañas",
+        description: " Es un tratamiento que estira, levanta y curva las pestañas naturales desde la raíz mediante moldes de silicona y productos específicos. Incluye tinte, por lo que las pestañas se ven más largas, negras y definidas de forma natural por unas 6 semanas.",
+        image: "assets/mirada.jpg", 
+        category: "Mirada: Pestañas y Cejas",
+        hidden: true
+    },
+        {
+        title: "Laminado de pestañas",
+        description: "Un tratamiento diseñado para ordenar, alisar y fijar el vello de las cejas. Logra un efecto de ceja peinada, más tupida y definida, ideal para domar vellos rebeldes o rellenar visualmente espacios de forma semipermanente.",
+        image: "assets/mirada.jpg", 
+        category: "Mirada: Pestañas y Cejas",
+        hidden: true
+    },
+    {
+        title: "Laminado de cejas",
+        description: "Un tratamiento diseñado para ordenar, alisar y fijar el vello de las cejas. Logra un efecto de ceja peinada, más tupida y definida, ideal para domar vellos rebeldes o rellenar visualmente espacios de forma semipermanente.",
+        image: "assets/mirada.jpg", 
+        category: "Mirada: Pestañas y Cejas",
+        hidden: true
+    },
+    // --- CATEGORÍA: MASAJES ---
+    {
+        title: "Masajes relajantes",
+        description: " Tienen como objetivo principal reducir el estrés, la ansiedad y la tensión mental. Se realizan con movimientos suaves, pausados y una presión leve a moderada para inducir un estado de calma profunda y mejorar la circulación.",
+        image: "assets/masajes.jpg", 
+        category: "Masajes: Recuperacion",
+        hidden: true
+    }
+    ,
+    {
+        title: "Masajes descontracturantes",
+        description: "Están enfocados en aliviar el dolor muscular y disolver los nudos o contracturas causados por las malas posturas, el ejercicio o la tensión acumulada. La presión es más firme, profunda y localizada en las zonas críticas (como espalda, cuello y hombros).",
+        image: "assets/masajes.jpg", 
+        category: "Masajes: Recuperacion",
+        hidden: true
+    }
+    , // --- CATEGORÍA: COSMETOLOGIA ---
+    {
+        title: "Cosmetodologia",
+        description: "Es el conjunto de tratamientos enfocados en mejorar la salud, higiene y apariencia de la piel del rostro. Incluye desde limpiezas profundas y exfoliaciones, hasta hidrataciones, peelings y tratamientos para combatir el acné o las líneas de expresión, siempre adaptándose al tipo de piel de cada persona.",
+        image: "assets/cosmetodologia2.jpg", 
+        category: "Piel: Cuidada tu piel",
+        hidden: true
+    }
+     ,
+     // --- CATEGORÍA: DEPILACION ---
+    {
+        title: "Depilacion definitiva(Laser)",
+        description: "Es un tratamiento que utiliza tecnología lumínica (como el láser Soprano o similar) para destruir el folículo piloso mediante calor, impidiendo que el vello vuelva a crecer. Requiere varias sesiones, es prácticamente indoloro gracias a sus cabezales de frío y logra una piel sumamente suave y libre de vello a largo plazo.",
+        image: "assets/depilacion.jpg", 
+        category: "Depilacion",
+        hidden: true
+    }
+     ,
+     // --- CATEGORÍA:BRONCEADOS ---
+    {
+        title: "​Bronceado Sol Pleno (Sudar / DHA):",
+        description: "Es un sistema de bronceado saludable que se aplica en todo el cuerpo mediante una pistola de aire (aerógrafo). Utiliza una loción a base de DHA (un derivado de la caña de azúcar) que reacciona con las proteínas de la piel para generar un tono dorado y natural en pocas horas, sin necesidad de exponerse al sol ni a los rayos UV. Es ideal para lucir un color espectacular en ocasiones especiales de forma rápida, segura y sin dañar la piel.",
+        image: "assets/bronceado.jpg", 
+        category: "Bronceados: Un color unico",
+        hidden: true
+    }
+  ,// --- CATEGORÍA: PELUQUERIA ---
+    {
+        title: "Corte de pelo",
+        description: "El servicio esencial para renovar el look, dar forma, movimiento y volumen al cabello. Se adapta a las facciones y estilo de cada clienta, eliminando además las puntas abiertas para mantener el pelo sano.",
+        image: "assets/peluqueria.jpg", 
+        category: "Peluqueria: Brilla",
+        hidden: true
+    }
+      ,
+    {
+        title: "Color/Tinte",
+        description: "Aplicación de coloración (global o de raíces) para cubrir canas, cambiar de tono o unificar el color del cabello, aportando brillo, intensidad y una cobertura perfecta.",
+        image: "assets/hair2.jpg", 
+        category: "Peluqueria: Brilla",
+        hidden: true
+    }
+      ,
+    {
+        title: "Mechas e Iluminacion",
+        description: "Técnicas de aclaración localizada (como balayage, babylights o reflejos tradicionales) que buscan dar luz, dimensión y contraste al cabello, logrando desde un efecto sutil de besado por el sol hasta rubios más globales y definidos.",
+        image: "assets/hair.jpg", 
+        category: "Peluqueria: Brilla",
+        hidden: true
+    }
+ ,
+    {
+        title: "Alisado",
+        description: "Tratamientos térmicos diseñados para modificar la estructura del cabello, eliminando el frizz y el volumen de forma duradera. Dejan la melena completamente lacia, sedosa y con un brillo espejo que facilita el peinado diario.",
+        image: "assets/peluqueria.jpg", 
+        category: "Peluqueria: Brilla",
+        hidden: true
+    }
+     ,
+    {
+        title: "Tratamientos capilares y nutriciones",
+        description: "Baños de crema, ampollas y mascarillas concentradas (hidratantes, nutritivas o reconstructoras) que devuelven los nutrientes, el agua y los aceites naturales que el pelo pierde por procesos químicos o el uso de herramientas de calor.",
+        image: "assets/peluqueria2.jpg", 
+        category: "Peluqueria: Brilla",
+        hidden: true
+    }
+];
+
+// 2. Función para renderizar las tarjetas en el DOM
+function renderServices(servicesArray) {
+    const container = document.getElementById('services-container');
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    servicesArray.forEach(service => {
+        const card = document.createElement('article');
+        card.classList.add('service-overlay-card');
+        if (service.hidden) {
+            card.classList.add('hidden');
+        }
+        card.dataset.cat = service.category;
+
+        card.innerHTML = `
+            <div class="card-bg-image" style="background-image: url('${service.image}');"></div>
+            <div class="card-overlay-content">
+                <div class="card-top-line"></div>
+                <h3 class="card-service-title">${service.title}</h3>
+                <p class="card-service-description">${service.description}</p>
+                <a href="#" class="card-action-btn">
+                    <span>Quiero información</span>
+                    <div class="arrow-circle"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// 3. Inicialización general cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
+    
+    // CRUCIAL: Primero renderizamos las tarjetas dinámicas
+    renderServices(services);
+
+    // Elementos del DOM generales
     const navToggle = document.getElementById("nav-toggle");
     const navMenu = document.getElementById("nav-menu");
     const filterButtons = document.querySelectorAll(".filter-btn");
+    
+    // CRUCIAL: Ahora que están renderizadas, el selector las va a encontrar perfectamente
     const cards = document.querySelectorAll(".service-overlay-card");
+    
+    // Elementos del Carrusel
     const slides = document.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev-arrow');
     const nextBtn = document.querySelector('.next-arrow');
     
     let currentSlide = 0;
-    const slideInterval = 5000; // 5 segundos
+    const slideInterval = 5000;
     let autoSlide;
 
-    // Función para cambiar de slide
+    // Lógica del Carrusel
     function showSlide(index) {
-        // Remover clases activas de los elementos actuales
+        if (slides.length === 0) return;
         slides[currentSlide].classList.remove('active');
         dots[currentSlide].classList.remove('active');
-
-        // Calcular el nuevo índice de manera cíclica
         currentSlide = (index + slides.length) % slides.length;
-
-        // Añadir clases activas al nuevo slide seleccionado
         slides[currentSlide].classList.add('active');
         dots[currentSlide].classList.add('active');
     }
 
-    // Funciones de control manual
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-        resetTimer();
-    }
+    function nextSlide() { showSlide(currentSlide + 1); resetTimer(); }
+    function prevSlide() { showSlide(currentSlide - 1); resetTimer(); }
+    function resetTimer() { clearInterval(autoSlide); startTimer(); }
+    function startTimer() { autoSlide = setInterval(nextSlide, slideInterval); }
 
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-        resetTimer();
-    }
-
-    // Reiniciar el temporizador automático al interactuar con el usuario
-    function resetTimer() {
-        clearInterval(autoSlide);
-        startTimer();
-    }
-
-    function startTimer() {
-        autoSlide = setInterval(nextSlide, slideInterval);
-    }
-
-    // Event Listeners para las Flechas del Carrusel
     if (nextBtn && prevBtn) {
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
     }
 
-    // Event Listeners para los Dots (Puntitos)
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-            resetTimer();
-        });
+        dot.addEventListener('click', () => { showSlide(index); resetTimer(); });
     });
 
-    // Inicializar el carrusel automático
-    if (slides.length > 0) {
-        startTimer();
-    }
+    if (slides.length > 0) startTimer();
 
-    // Validamos que los elementos existan en la página para evitar errores (Menú Mobile)
+    // Menú Mobile
     if (navToggle && navMenu) {
         navToggle.addEventListener("click", () => {
-            // Intercambia la clase 'active' en el menú al hacer clic
             navMenu.classList.toggle("nav-menu_visible");
-            
-            // Opcional: Cambia el atributo aria-label para accesibilidad
             if (navMenu.classList.contains("nav-menu_visible")) {
                 navToggle.setAttribute("aria-label", "Cerrar menú");
             } else {
@@ -82,16 +229,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Lógica de Filtrado de Tarjetas de Servicios
+    // Lógica de Filtrado (ahora con 'cards' lleno)
     filterButtons.forEach(button => {
         button.addEventListener("click", () => {
-            // Remover estado activo de todos los botones y ponerlo en el clickeado
             filterButtons.forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
 
             const selectedCategory = button.getAttribute("data-category");
 
-            // Mostrar u ocultar tarjetas según el data-cat
             cards.forEach(card => {
                 if (card.getAttribute("data-cat") === selectedCategory) {
                     card.classList.remove("hidden");

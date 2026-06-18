@@ -159,12 +159,12 @@ img {
 
 /* Clases específicas para tus imágenes */
 .banner-facial {
-    background-image: url('../assets/TratamientoFacial.JPG'); 
+    background-image: url('../assets/hair2.jpg'); 
     background-color: #f5ece6;
 }
 
 .banner-corporal {
-    background-image: url('../assets/peluqueria.jpg');
+    background-image: url('../assets/TratamientoFacial.JPG');
     background-color: #ebdcd0;
 }
 /* Botón Azul de las capturas */
