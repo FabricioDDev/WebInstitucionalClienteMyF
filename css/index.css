@@ -558,6 +558,23 @@ main > a:last-of-type::before {
         display: none; /* Idealmente controlado con una clase JS (.active) */
     }
 
+    .nav-menu.nav-menu_visible {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Separación entre los links */
+        
+        /* Posicionamiento flotante */
+        position: absolute;
+        top: 100%; /* Se despliega justo abajo de donde termina el header */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff; /* Poné el color de fondo de tu marca */
+        padding: 30px 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombrita suave para darle profundidad */
+        z-index: 99; /* Para que pase por encima del carrusel y el resto del contenido */
+    }
+
   /* ==========================================================================
       CORRECCIÓN: Carousel Mobile
       ========================================================================== */
@@ -634,5 +651,23 @@ main > a:last-of-type::before {
 
     .service-banner {
         height: 320px;
+    }
+    /*seccion encontranos */
+    .find-us-section {
+        padding: 50px 5%; /* Achicamos un poco el espaciado para que no quede tan largo en el celu */
+    }
+
+    .find-us-container {
+        /* Rompemos las dos columnas y hacemos que pase a ser una sola */
+        grid-template-columns: 1fr; 
+        gap: 40px; /* Reducimos la distancia entre la info y el mapa */
+    }
+
+    .find-us-title {
+        font-size: 2rem; /* Achicamos un toque el título para pantallas chicas */
+    }
+
+    .find-us-map {
+        height: 320px; /* Le bajamos el alto fijo para que en mobile no se coma toda la pantalla */
     }
 }

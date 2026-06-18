@@ -330,7 +330,54 @@ img {
 .service-overlay-card.hidden {
     display: none !important;
 }
+/* ==========================================================================
+   ESTILOS NUEVOS PARA EL DESPLIEGUE DE TARJETAS
+   ========================================================================== */
 
+/* Botón Leer Más */
+.toggle-description-btn {
+    background: none;
+    border: none;
+    color: #e3c4b5; /* Combinando con tu paleta pastel */
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 15px;
+    display: inline-block;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.toggle-description-btn:hover {
+    color: #ffffff;
+}
+
+/* Modificación cuando la tarjeta se expande */
+.card-service-description.expanded {
+    display: block; /* Rompe el webkit-box */
+    overflow: visible;
+    -webkit-line-clamp: unset; /* Quita el límite de 3 líneas */
+    max-height: none;
+}
+
+/* Permitir que la tarjeta crezca si el texto expandido supera el alto inicial */
+.service-overlay-card.expanded {
+    height: auto;
+    min-height: 440px; 
+    align-items: stretch; /* Se adapta dinámicamente al contenido nuevo */
+}
+
+.card-overlay-content.expanded {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Espaciador del botón de acción */
+.card-footer-action {
+    margin-top: auto; /* Empuja el botón "Quiero información" siempre abajo */
+}
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
@@ -444,4 +491,21 @@ footer p { margin-bottom: 8px; }
     .nav-menu {
         display: none; /* Idealmente controlado con una clase JS (.active) */
     }
+        .nav-menu.nav-menu_visible {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Separación entre los links */
+        
+        /* Posicionamiento flotante */
+        position: absolute;
+        top: 100%; /* Se despliega justo abajo de donde termina el header */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff; /* Poné el color de fondo de tu marca */
+        padding: 30px 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombrita suave para darle profundidad */
+        z-index: 99; /* Para que pase por encima del carrusel y el resto del contenido */
+    }
+
 }

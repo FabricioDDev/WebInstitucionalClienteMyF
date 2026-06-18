@@ -136,7 +136,9 @@ const services = [
     }
 ];
 
-// 2. Función para renderizar las tarjetas en el DOM
+// ==========================================================================
+// 2. FUNCIÓN PARA RENDERIZAR LAS TARJETAS EN EL DOM
+// ==========================================================================
 function renderServices(servicesArray) {
     const container = document.getElementById('services-container');
     if (!container) return;
@@ -146,9 +148,6 @@ function renderServices(servicesArray) {
     servicesArray.forEach(service => {
         const card = document.createElement('article');
         card.classList.add('service-overlay-card');
-        if (service.hidden) {
-            card.classList.add('hidden');
-        }
         card.dataset.cat = service.category;
 
         card.innerHTML = `
@@ -157,20 +156,45 @@ function renderServices(servicesArray) {
                 <div class="card-top-line"></div>
                 <h3 class="card-service-title">${service.title}</h3>
                 <p class="card-service-description">${service.description}</p>
-                <a href="#" class="card-action-btn">
-                    <span>Quiero información</span>
-                    <div class="arrow-circle"><i class="fas fa-arrow-right"></i></div>
-                </a>
+                <button class="toggle-description-btn">Leer más</button>
+                <div class="card-footer-action">
+                    <a href="#" class="card-action-btn">
+                        <span>Quiero información</span>
+                        <div class="arrow-circle"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                </div>
             </div>
         `;
         container.appendChild(card);
     });
+
+    // Manejo del evento de "Leer más" / "Leer menos"
+    const toggleBtns = container.querySelectorAll('.toggle-description-btn');
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const descriptionElement = e.target.previousElementSibling;
+            const cardContent = e.target.closest('.card-overlay-content');
+            const card = e.target.closest('.service-overlay-card');
+
+            descriptionElement.classList.toggle('expanded');
+            cardContent.classList.toggle('expanded');
+            card.classList.toggle('expanded');
+
+            if (descriptionElement.classList.contains('expanded')) {
+                e.target.textContent = "Leer menos";
+            } else {
+                e.target.textContent = "Leer más";
+            }
+        });
+    });
 }
 
-// 3. Inicialización general cuando el DOM esté listo
+// ==========================================================================
+// 3. INICIALIZACIÓN GENERAL CUANDO EL DOM ESTÉ LISTO
+// ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
     
-    // CRUCIAL: Primero renderizamos las tarjetas dinámicas
+    // Renderizamos las tarjetas (se ven todas de forma predeterminada al cargar)
     renderServices(services);
 
     // Elementos del DOM generales
@@ -178,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const navMenu = document.getElementById("nav-menu");
     const filterButtons = document.querySelectorAll(".filter-btn");
     
-    // CRUCIAL: Ahora que están renderizadas, el selector las va a encontrar perfectamente
+    // Capturamos las tarjetas ya renderizadas
     const cards = document.querySelectorAll(".service-overlay-card");
     
     // Elementos del Carrusel
@@ -229,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Lógica de Filtrado (ahora con 'cards' lleno)
+    // Lógica de Filtrado por Categoría (Soporta botón 'all')
     filterButtons.forEach(button => {
         button.addEventListener("click", () => {
             filterButtons.forEach(btn => btn.classList.remove("active"));
@@ -238,12 +262,41 @@ document.addEventListener("DOMContentLoaded", () => {
             const selectedCategory = button.getAttribute("data-category");
 
             cards.forEach(card => {
-                if (card.getAttribute("data-cat") === selectedCategory) {
+                // Si el botón tiene data-category="all" o coincide con la categoría de la tarjeta
+                if (selectedCategory === "all" || card.getAttribute("data-cat") === selectedCategory) {
                     card.classList.remove("hidden");
                 } else {
                     card.classList.add("hidden");
                 }
             });
         });
+    });
+});
+
+// Lógica para expandir el texto corto (excerpt) en las tarjetas de Blog
+const blogCards = document.querySelectorAll('.blog-card');
+
+blogCards.forEach(card => {
+    const excerpt = card.querySelector('.blog-card-excerpt');
+    if (!excerpt) return;
+
+    // 1. Creamos dinámicamente el botón "Leer más"
+    const toggleBtn = document.createElement('button');
+    toggleBtn.classList.add('blog-toggle-btn');
+    toggleBtn.textContent = 'Leer más';
+    
+    // 2. Lo insertamos justo después del párrafo de texto
+    excerpt.insertAdjacentElement('afterend', toggleBtn);
+
+    // 3. Escuchamos el clic
+    toggleBtn.addEventListener('click', () => {
+        excerpt.classList.toggle('expanded');
+        card.classList.toggle('expanded');
+
+        if (excerpt.classList.contains('expanded')) {
+            toggleBtn.textContent = 'Leer menos';
+        } else {
+            toggleBtn.textContent = 'Leer más';
+        }
     });
 });

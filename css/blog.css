@@ -190,7 +190,40 @@ img {
 .blog-card-meta i {
     font-size: 0.85rem;
 }
+/* ==========================================================================
+   NUEVOS ESTILOS PARA EXPANDIR CONTENIDO DEL BLOG
+   ========================================================================== */
 
+/* Estilos base del botón Leer más */
+.blog-toggle-btn {
+    background: none;
+    border: none;
+    color: #043927; /* Tu verde institucional */
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 20px;
+    align-self: flex-start; /* Evita que el botón ocupe todo el ancho */
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+}
+
+.blog-toggle-btn:hover {
+    opacity: 0.8;
+}
+
+/* Modificación del texto cuando se expande */
+.blog-card-excerpt.expanded {
+    display: block; /* Rompe el webkit-box limitante */
+    overflow: visible;
+    -webkit-line-clamp: unset; /* Desactiva el corte estricto de 4 líneas */
+}
+
+/* Ajuste opcional para la tarjeta expandida (permite crecimiento natural) */
+.blog-card.expanded {
+    height: auto;
+}
 
 
 /* ==========================================================================
@@ -290,12 +323,29 @@ footer p { margin-bottom: 8px; }
     .nav-menu {
         display: none; /* Idealmente controlado con una clase JS (.active) */
     }
+}
 
-  
 /* ==========================================================================
    RESPONSIVE PARA BLOG
    ========================================================================== */
 @media (max-width: 768px) {
+    .nav-menu.nav-menu_visible {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Separación entre los links */
+        
+        /* Posicionamiento flotante */
+        position: absolute;
+        top: 100%; /* Se despliega justo abajo de donde termina el header */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff; /* Poné el color de fondo de tu marca */
+        padding: 30px 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombrita suave para darle profundidad */
+        z-index: 99; /* Para que pase por encima del carrusel y el resto del contenido */
+    }
+
     .blog-section {
         padding: 40px 25px;
     }
