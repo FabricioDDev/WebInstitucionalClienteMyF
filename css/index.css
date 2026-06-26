@@ -507,21 +507,21 @@ main > a:last-of-type::before {
 
 .find-us-details li {
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* Cambiar a 'center' si quieres un centrado vertical perfecto */
     gap: 18px;
 }
 
 .find-us-details i {
-    font-size: 1.3rem;
-    color: #1AD9AA; /* Tu color verde aguamarina */
+    font-size: 1.2rem; /* Ajustado sutilmente para que quepa bien cualquier ícono */
+    color: #1AD9AA; 
     background-color: #f0faf7;
-    padding: 12px;
     border-radius: 50%;
     width: 45px;
     height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex;         /* Asegura el comportamiento flex */
+    align-items: center;    /* Centrado vertical del ícono */
+    justify-content: center;/* Centrado horizontal del ícono */
+    flex-shrink: 0;        /* Evita que el círculo se aplaste o desplace */
 }
 
 .find-us-details h3 {

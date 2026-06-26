@@ -27,28 +27,28 @@ const services = [
     {
         title: "Extensiones de pestaña",
         description: "Es una técnica que consiste en colocar pelitos individuales (de fibra sintética muy liviana) sobre cada una de las pestañas naturales mediante un adhesivo hipoalergénico. Sirve para dar volumen, longitud y curvatura, logrando una mirada impactante y efecto rímel continuo sin necesidad de maquillarse. Dependiendo de la cantidad de pelitos por pestaña natural, pueden ser Pelo a Pelo (más natural) o Volumen (más tupido).",
-        image: "assets/mirada.jpg", 
+        image: "assets/pestañas.jpg", 
         category: "Mirada: Pestañas y Cejas",
         hidden: true
     },
         {
         title: "Lifting de pestañas",
         description: " Es un tratamiento que estira, levanta y curva las pestañas naturales desde la raíz mediante moldes de silicona y productos específicos. Incluye tinte, por lo que las pestañas se ven más largas, negras y definidas de forma natural por unas 6 semanas.",
-        image: "assets/mirada.jpg", 
+        image: "assets/pestañas.jpg", 
         category: "Mirada: Pestañas y Cejas",
         hidden: true
     },
         {
         title: "Laminado de pestañas",
         description: "Un tratamiento diseñado para ordenar, alisar y fijar el vello de las cejas. Logra un efecto de ceja peinada, más tupida y definida, ideal para domar vellos rebeldes o rellenar visualmente espacios de forma semipermanente.",
-        image: "assets/mirada.jpg", 
+        image: "assets/pestañas.jpg", 
         category: "Mirada: Pestañas y Cejas",
         hidden: true
     },
     {
         title: "Laminado de cejas",
         description: "Un tratamiento diseñado para ordenar, alisar y fijar el vello de las cejas. Logra un efecto de ceja peinada, más tupida y definida, ideal para domar vellos rebeldes o rellenar visualmente espacios de forma semipermanente.",
-        image: "assets/mirada.jpg", 
+        image: "assets/pestañas.jpg", 
         category: "Mirada: Pestañas y Cejas",
         hidden: true
     },
@@ -122,7 +122,7 @@ const services = [
     {
         title: "Alisado",
         description: "Tratamientos térmicos diseñados para modificar la estructura del cabello, eliminando el frizz y el volumen de forma duradera. Dejan la melena completamente lacia, sedosa y con un brillo espejo que facilita el peinado diario.",
-        image: "assets/peluqueria.jpg", 
+        image: "assets/alisado.jpg", 
         category: "Peluqueria: Brilla",
         hidden: true
     }
@@ -158,7 +158,7 @@ function renderServices(servicesArray) {
                 <p class="card-service-description">${service.description}</p>
                 <button class="toggle-description-btn">Leer más</button>
                 <div class="card-footer-action">
-                    <a href="#" class="card-action-btn">
+                    <a href="https://wa.me/01130495408" class="card-action-btn">
                         <span>Quiero información</span>
                         <div class="arrow-circle"><i class="fas fa-arrow-right"></i></div>
                     </a>
